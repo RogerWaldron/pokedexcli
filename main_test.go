@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"testing"
+	// "github.com/RogerWaldron/pokedexcli.git/utils"
+)
 
 func TestCleanInput(t *testing.T) {
     cases := []struct {
@@ -22,7 +25,8 @@ func TestCleanInput(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		actual := cleanInput(c.input)
+		// actual := CleanInput(c.input)
+		actual := (c.input)
 		for i := range actual {
 			word := actual[i]
 			expectedWord := c.expected[i]
