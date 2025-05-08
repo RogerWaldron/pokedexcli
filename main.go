@@ -4,26 +4,35 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	// "github.com/RogerWaldron/pokedexcli.git/utils"
+
+	"github.com/RogerWaldron/pokedexcli/commands"
+	"github.com/RogerWaldron/pokedexcli/utils"
 )
 
 func main() {
+	// pokeClient := pokeapi.NewClient(5 * time.Second)
+	// cfg := &pokeapi.Config{
+	// 	pokeapiClient: pokeClient,
+	// }
 
 	reader := bufio.NewScanner(os.Stdin)
-
-	// printPrompt()
+	commands := commands.GetCommands()
+	printPrompt()
 	for reader.Scan() {
-		// text := CleanInput(reader.Text())
-        // if command, exists := commands[text]; exists {
-        //     // Call a hardcoded function
-		// 	config := config{}
-        //     err := command.callback(&config)
-		// 	if err != nil {
-		// 		fmt.Println(fmt.Errorf("Error: %w", err))
-		// 	}
-        // } else {
-		// 	fmt.Println("Unknown command")
-		// }
+		text := utils.CleanInput(reader.Text())
+		if len(text) == 0 {
+			continue
+		}
+
+        if command, exists := commands[text]; exists {
+            // Call a hardcoded function
+            err := command.Callback(nil) // TODO: use later to pass Pokeapi
+			if err != nil {
+				fmt.Println(fmt.Errorf("Error: %w", err))
+			}
+        } else {
+			fmt.Println("Unknown command")
+		}
 		printPrompt()
 	}
 }

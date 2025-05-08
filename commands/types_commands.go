@@ -1,12 +1,15 @@
 package commands
 
+import "github.com/RogerWaldron/pokedexcli/internal/pokeapi"
+
 type cliCommand struct {
 	name        string
 	description string
-	callback    func(config *config) error
+	Callback    func(*Config) error
 }
 
-type config struct {
-	Next     string
-	Previous string
+type Config struct {
+	pokeapiClient    pokeapi.Client
+	nextLocationsURL *string
+	prevLocationsURL *string
 }

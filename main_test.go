@@ -2,7 +2,8 @@ package main
 
 import (
 	"testing"
-	// "github.com/RogerWaldron/pokedexcli.git/utils"
+
+	"github.com/RogerWaldron/pokedexcli/utils"
 )
 
 func TestCleanInput(t *testing.T) {
@@ -25,8 +26,7 @@ func TestCleanInput(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		// actual := CleanInput(c.input)
-		actual := (c.input)
+		actual := utils.CleanInput(c.input)
 		for i := range actual {
 			word := actual[i]
 			expectedWord := c.expected[i]

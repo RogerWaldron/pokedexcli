@@ -5,7 +5,7 @@ import (
 	"os/exec"
 )
 
-func commandClear(config *config) error {
+func commandClear(cfg *Config) error {
     cmd := exec.Command("clear")
     cmd.Stdout = os.Stdout
     cmd.Run()

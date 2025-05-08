@@ -1,26 +1,26 @@
 package commands
 
-func getCommands() map[string]cliCommand {
+func GetCommands() map[string]cliCommand {
 	commands := map[string]cliCommand {
         "help":  {
 			name: "Help",
 			description: "Help",
-			callback: commandHelp,
+			Callback: commandHelp,
 		},
         "clear": {
 			name: "Clear Screen",
 			description: "Clear the screen",
-			callback: commandClear,
+			Callback: commandClear,
 		},
 		"exit": {
 			name:        "exit",
 			description: "Exit the Pokedex",
-			callback:    commandExit,
+			Callback:    commandExit,
 		},
 		"map": {
 			name:        "map",
 			description: "Areas in the Pokemon world",
-			callback:    commandMap,
+			Callback:    commandMap,
 		},
     }
 
