@@ -3,14 +3,13 @@ package pokeapi
 import (
 	"net/http"
 	"time"
+
+	"github.com/RogerWaldron/pokedexcli/types"
 )
 
-type Client struct {
-	httpClient http.Client
-}
-func NewClient(timeout time.Duration) Client{
-	return Client{
-		httpClient: http.Client{
+func NewClient(timeout time.Duration) types.Client{
+	return types.Client{
+		HttpClient: http.Client{
 			Timeout: timeout,
 		},
 	}

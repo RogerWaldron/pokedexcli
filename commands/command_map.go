@@ -3,9 +3,11 @@ package commands
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/RogerWaldron/pokedexcli/types"
 )
 
-func commandMap(cfg *Config) error {
+func commandMap(cfg *types.ApiConfig) error {
 	endpointLocAreas := "https://pokeapi.co/api/v2/location-area/"
 	req, err := http.NewRequest(http.MethodGet, endpointLocAreas, nil)
 	resp, err := http.DefaultClient.Do(req)
