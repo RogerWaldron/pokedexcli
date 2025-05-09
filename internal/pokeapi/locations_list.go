@@ -21,7 +21,7 @@ func (c *Client) LocationList(pageURL *string) (LocationAreas, error) {
 	if err != nil {
 		return LocationAreas{}, err
 	}
-	resp.Body.Close()
+	defer resp.Body.Close()
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
