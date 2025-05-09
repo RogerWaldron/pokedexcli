@@ -8,14 +8,13 @@ import (
 
 	"github.com/RogerWaldron/pokedexcli/commands"
 	"github.com/RogerWaldron/pokedexcli/internal/pokeapi"
-	"github.com/RogerWaldron/pokedexcli/types"
 	"github.com/RogerWaldron/pokedexcli/utils"
 )
 
 func main() {
 	pokeClient := pokeapi.NewClient(5 * time.Second)
-	cfg := &types.ApiConfig{
-		ApiClient: pokeClient.HttpClient,
+	cfg := &commands.ApiConfig{
+		ApiClient: pokeClient,
 	}
 
 	reader := bufio.NewScanner(os.Stdin)
