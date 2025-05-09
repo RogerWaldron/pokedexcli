@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func commandMapNext(cfg *ApiConfig) error {
+func commandMap(cfg *ApiConfig) error {
 	resp, err := cfg.ApiClient.LocationList(cfg.NextLocationsURL)
 	if err != nil {
 		return err
@@ -20,7 +20,7 @@ func commandMapNext(cfg *ApiConfig) error {
 	return nil
 }
 
-func commandMapPrev(cfg *ApiConfig) error {
+func commandMapB(cfg *ApiConfig) error {
 	if cfg.PrevLocationsURL == nil {
 		return errors.New("You are on the first page")
 	}
@@ -30,7 +30,9 @@ func commandMapPrev(cfg *ApiConfig) error {
 		return err
 	}
 	cfg.NextLocationsURL = &resp.Next
-	cfg.PrevLocationsURL = &resp.Previous
+	if resp.Previous != "" {
+		cfg.PrevLocationsURL = &resp.Previous
+	}
 	
 	for _, loc := range resp.Results {
 		fmt.Println(loc.Name)
