@@ -17,10 +17,15 @@ func GetCommands() map[string]cliCommand {
 			description: "Exit the Pokedex",
 			Callback:    commandExit,
 		},
-		"map": {
+		"mapnext": {
 			name:        "map",
 			description: "Areas in the Pokemon world",
-			Callback:    commandMap,
+			Callback:    commandMapNext,
+		},
+		"mapprev": {
+			name:        "map",
+			description: "Areas in the Pokemon world",
+			Callback:    commandMapPrev,
 		},
     }
 
