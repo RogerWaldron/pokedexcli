@@ -9,4 +9,5 @@ type ApiConfig struct {
 	NextLocationsURL *string
 	PrevLocationsURL *string
 	Text             []string
+	Captured         map[string]pokeapi.Pokemon
 }
