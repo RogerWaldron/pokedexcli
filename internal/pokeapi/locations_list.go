@@ -95,6 +95,10 @@ func (c *Client) PokemonInAreaList(ID string) (PokemonInArea, error) {
 	if err != nil {
 		return PokemonInArea{}, err
 	}
+
+	if len(data) == 0 {
+		return PokemonInArea{}, nil
+	}
 	
 	pokemonResp := PokemonInArea{}
 	err = json.Unmarshal(data, &pokemonResp)

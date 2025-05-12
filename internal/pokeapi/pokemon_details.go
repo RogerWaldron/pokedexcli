@@ -37,6 +37,10 @@ func(c *Client) PokemonDetails(name string) (Pokemon, error) {
 		return Pokemon{}, err
 	}
 
+	if len(data) == 0 {
+		return Pokemon{}, nil
+	}
+
 	pokemon := Pokemon{}
 	err = json.Unmarshal(data, &pokemon)
 	if err != nil {
