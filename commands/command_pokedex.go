@@ -3,8 +3,9 @@ package commands
 import "fmt"
 
 func commandPokedex(cfg *ApiConfig) error {
+	fmt.Println("Your Pokedex:")
 	for _, pokemon := range cfg.Captured {
-		fmt.Println(pokemon.Name)
+		fmt.Printf(" - %s\n", pokemon.Name)
 	}
 	return nil
 }
