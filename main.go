@@ -17,6 +17,7 @@ func main() {
 	cfg := &commands.ApiConfig{
 		ApiClient: pokeClient,
 		Text: []string{},
+		Captured: make(map[string]pokeapi.Pokemon),
 	}
 	reader := bufio.NewScanner(os.Stdin)
 	commands := commands.GetCommands()
